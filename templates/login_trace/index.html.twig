@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Logs de connexion{% endblock %}
+
+{% block body %}
+    <h1>Logs de connexion</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Utilisateur</th>
+                <th>Date de connexion</th>
+                <th>Adresse IP</th>
+                <th>Statut</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for login_trace in login_traces %}
+            <tr>
+                <td>{{ login_trace.membre ? login_trace.membre.username : 'Inconnu' }}</td>
+                <td>{{ login_trace.dateConnexion ? login_trace.dateConnexion|date('d/m/Y H:i:s') : '' }}</td>
+                <td>{{ login_trace.adresseIP }}</td>
+                <td>
+                    {% if login_trace.succes %}
+                        <span class="label label-success">Succès</span>
+                    {% else %}
+                        <span class="label label-danger">Échec</span>
+                    {% endif %}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer un compte - Agora{% endblock %}
+
+{% block body %}
+<div align="center">
+    {{ form_start(registrationForm) }}
+
+    {% if registrationForm.vars.errors|length > 0 %}
+        <div class="alert alert-danger">
+            {{ form_errors(registrationForm) }}
+        </div>
+    {% endif %}
+
+    <h1 class="h3 mb-3 font-weight-normal">Créer un compte</h1>
+
+    <div style="max-width: 400px; margin: 0 auto; text-align: left;">
+        <div class="form-group" style="margin-bottom: 10px;">
+            {{ form_label(registrationForm.nomMembre) }}
+            {{ form_widget(registrationForm.nomMembre) }}
+            {{ form_errors(registrationForm.nomMembre) }}
+        </div>
+
+        <div class="form-group" style="margin-bottom: 10px;">
+            {{ form_label(registrationForm.prenomMembre) }}
+            {{ form_widget(registrationForm.prenomMembre) }}
+            {{ form_errors(registrationForm.prenomMembre) }}
+        </div>
+
+        <div class="form-group" style="margin-bottom: 10px;">
+            {{ form_label(registrationForm.username) }}
+            {{ form_widget(registrationForm.username) }}
+            {{ form_errors(registrationForm.username) }}
+        </div>
+
+        <div class="form-group" style="margin-bottom: 10px;">
+            {{ form_label(registrationForm.mailMembre) }}
+            {{ form_widget(registrationForm.mailMembre) }}
+            {{ form_errors(registrationForm.mailMembre) }}
+        </div>
+
+        <div class="form-group" style="margin-bottom: 10px;">
+            {{ form_label(registrationForm.telMembre) }}
+            {{ form_widget(registrationForm.telMembre) }}
+            {{ form_errors(registrationForm.telMembre) }}
+        </div>
+
+        <div class="form-group" style="margin-bottom: 10px;">
+            {{ form_label(registrationForm.rueMembre) }}
+            {{ form_widget(registrationForm.rueMembre) }}
+            {{ form_errors(registrationForm.rueMembre) }}
+        </div>
+
+        <div class="form-group" style="margin-bottom: 10px;">
+            {{ form_label(registrationForm.cpMembre) }}
+            {{ form_widget(registrationForm.cpMembre) }}
+            {{ form_errors(registrationForm.cpMembre) }}
+        </div>
+
+        <div class="form-group" style="margin-bottom: 10px;">
+            {{ form_label(registrationForm.villeMembre) }}
+            {{ form_widget(registrationForm.villeMembre) }}
+            {{ form_errors(registrationForm.villeMembre) }}
+        </div>
+
+        <div class="form-group" style="margin-bottom: 10px;">
+            {{ form_label(registrationForm.plainPassword.first) }}
+            {{ form_widget(registrationForm.plainPassword.first) }}
+            {{ form_errors(registrationForm.plainPassword.first) }}
+        </div>
+
+        <div class="form-group" style="margin-bottom: 10px;">
+            {{ form_label(registrationForm.plainPassword.second) }}
+            {{ form_widget(registrationForm.plainPassword.second) }}
+            {{ form_errors(registrationForm.plainPassword.second) }}
+        </div>
+    </div>
+
+    <div style="margin-top: 15px;">
+        <button class="btn btn-lg btn-primary" type="submit">
+            Créer mon compte
+        </button>
+    </div>
+
+    <p style="margin-top: 15px;">
+        Déjà inscrit ? <a href="{{ path('app_login') }}">Se connecter</a>
+    </p>
+
+    {{ form_end(registrationForm) }}
+</div>
+{% endblock %}
